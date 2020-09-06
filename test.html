@@ -1,10 +1,14 @@
 <div id="skin_container"></div>
 <script src="js/skinview3d.bundle.js"></script>
 <script>
+	var pathArray = window.location.pathname
+	var url = new URL(pathArray);
+	var i = url.searchParams.get("i");
+	
 	let skinViewer = new skinview3d.SkinViewer(document.getElementById("skin_container"), {
 		width: 300,
 		height: 400,
-		skin: "https://lh3.googleusercontent.com/gv3yE2lt8GbI3AcJXvQ2rcWb0j6--Y7s84YojkNN4tyPvAXnZy98j9sClO-p4ZCGKvwdIARkoUERxNbwxfIQMw"
+		skin: i
 	});
 
 	// Change viewer size
@@ -12,7 +16,7 @@
 	skinViewer.height = 800;
 
 	// Load another skin
-	skinViewer.loadSkin("https://lh3.googleusercontent.com/gv3yE2lt8GbI3AcJXvQ2rcWb0j6--Y7s84YojkNN4tyPvAXnZy98j9sClO-p4ZCGKvwdIARkoUERxNbwxfIQMw");
+	skinViewer.loadSkin(i);
 
 	// Load a cape
 	skinViewer.loadCape("https://lh3.googleusercontent.com/gv3yE2lt8GbI3AcJXvQ2rcWb0j6--Y7s84YojkNN4tyPvAXnZy98j9sClO-p4ZCGKvwdIARkoUERxNbwxfIQMw");
